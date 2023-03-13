@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AddScoreTableViewController.swift
 //  ScoresApp
 //
 //  Created by Adrian Iraizos Mendoza on 13/3/23.
@@ -7,13 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+final class AddScoreTableViewController: UITableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-
 }
-
