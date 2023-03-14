@@ -11,9 +11,7 @@ final class ScoresTableViewController: UITableViewController {
 
     //Enganchamos la logica del modelo
     let modelLogic = ModelLogic.shared
-    
-    
-    
+    let viewLogic = ViewLogic.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +48,7 @@ final class ScoresTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "zelda", for: indexPath)
         let score = modelLogic.getScoreRow(indexPath: indexPath)
         
-        var content = UIListContentConfiguration.cell()
-        content.text = score.title
-        content.secondaryText = score.composer
-        content.image = UIImage(named: score.cover)
-        content.imageProperties.cornerRadius = 20
-        
-       
-        cell.contentConfiguration = content
+        cell.contentConfiguration = viewLogic.cellForRowAt(indexPath: indexPath)
         
         // Estos son de prueba inicial
         // cell.textLabel?.text = "Titulo celda \(indexPath.row)"
@@ -88,16 +79,11 @@ final class ScoresTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .left)
             
        // } else if editingStyle == .insert {
-            //Solo cuando quiero hacer una inserción de valor en la que voy a controlar manualmente todo.  Asi que no se hace. Se hace en una tabla a parte.
+            //Solo cuando quiero hacer una inserción de valor en la que voy a controlar manualmente todo.  Asi que NO se hace. Se hace en una tabla a parte.
             //Si queremos añadir más datos
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
-        
-        
-        
     }
-    
-
     //Rearreglo de la tabla
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -118,7 +104,7 @@ final class ScoresTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
-    //Sender es quien ha pulsado la celda
+    ///**Sender es quien ha pulsado la celda
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
