@@ -16,6 +16,7 @@
 		3AAB2D0B29BFA7B9008D970A /* ScoresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB2D0A29BFA7B9008D970A /* ScoresModel.swift */; };
 		3AAB2D0D29BFAE26008D970A /* ScoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB2D0C29BFAE26008D970A /* ScoresTableViewController.swift */; };
 		3AD0B68629C0F4F8005BC545 /* ViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0B68529C0F4F8005BC545 /* ViewLogic.swift */; };
+		3AD0B68929C12515005BC545 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0B68829C12515005BC545 /* Extensions.swift */; };
 		3ADD96DC29BFC38B00A53BCC /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD96DA29BFC38B00A53BCC /* Favorites.storyboard */; };
 		3ADD96DE29BFC4E500A53BCC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD96DD29BFC4E500A53BCC /* DetailViewController.swift */; };
 		3ADD96E029BFC52F00A53BCC /* AddScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD96DF29BFC52F00A53BCC /* AddScoreTableViewController.swift */; };
@@ -36,6 +37,7 @@
 		3AAB2D0A29BFA7B9008D970A /* ScoresModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresModel.swift; sourceTree = "<group>"; };
 		3AAB2D0C29BFAE26008D970A /* ScoresTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresTableViewController.swift; sourceTree = "<group>"; };
 		3AD0B68529C0F4F8005BC545 /* ViewLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLogic.swift; sourceTree = "<group>"; };
+		3AD0B68829C12515005BC545 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3ADD96DB29BFC38B00A53BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		3ADD96DD29BFC4E500A53BCC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3ADD96DF29BFC52F00A53BCC /* AddScoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScoreTableViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		3AAB2CEC29BFA1F6008D970A /* ScoresApp */ = {
 			isa = PBXGroup;
 			children = (
+				3AD0B68729C12508005BC545 /* Helpers */,
 				3AD0B68429C0F493005BC545 /* MVC PreiOS 13 */,
 				3AAB2D0729BFA5CB008D970A /* Resources */,
 				3AAB2D0329BFA40B008D970A /* System */,
@@ -140,6 +143,14 @@
 				3AAB2D0529BFA434008D970A /* Controller */,
 			);
 			name = "MVC PreiOS 13";
+			sourceTree = "<group>";
+		};
+		3AD0B68729C12508005BC545 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3AD0B68829C12515005BC545 /* Extensions.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +235,7 @@
 				3AAB2CF029BFA1F6008D970A /* SceneDelegate.swift in Sources */,
 				3AD0B68629C0F4F8005BC545 /* ViewLogic.swift in Sources */,
 				3ADD96E629BFC83600A53BCC /* ModelLogic.swift in Sources */,
+				3AD0B68929C12515005BC545 /* Extensions.swift in Sources */,
 				3ADD96E429BFC5C900A53BCC /* ModelPersistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

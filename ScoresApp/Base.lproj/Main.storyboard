@@ -147,12 +147,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uGF-vw-tmH">
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" toolTip="tooltip" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uGF-vw-tmH">
                                                     <rect key="frame" x="20" y="39.333333333333343" width="262" height="35.666666666666657"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbT-rD-52b">
+                                                <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbT-rD-52b">
                                                     <rect key="frame" x="290" y="40" width="83" height="34.333333333333343"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="tinted" title="Change"/>
@@ -250,6 +250,9 @@
                                                     <rect key="frame" x="240.66666666666663" y="53" width="132.33333333333337" height="34.333333333333343"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="tinted" title="Change Cover"/>
+                                                    <connections>
+                                                        <action selector="changeCover:" destination="SjC-fK-d8H" eventType="touchUpInside" id="uvL-1l-6TA"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -269,9 +272,25 @@
                             <outlet property="delegate" destination="SjC-fK-d8H" id="lsE-Bp-Kvc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit score" largeTitleDisplayMode="never" id="Rae-YH-V1b"/>
+                    <navigationItem key="navigationItem" title="Edit score" largeTitleDisplayMode="never" id="Rae-YH-V1b">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="upT-Xn-ZIO">
+                            <connections>
+                                <action selector="saveScore:" destination="SjC-fK-d8H" id="Tyu-of-V1E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="changeComposer" destination="XbT-rD-52b" id="ot1-Zo-h7w"/>
+                        <outlet property="composer" destination="uGF-vw-tmH" id="MIe-md-SqN"/>
+                        <outlet property="cover" destination="ZcL-9o-SLY" id="n2D-T2-NmK"/>
+                        <outlet property="length" destination="U2b-yj-XpH" id="3zh-yg-qab"/>
+                        <outlet property="titulo" destination="dus-o4-Dwe" id="deu-PA-jwc"/>
+                        <outlet property="year" destination="a9G-NW-jTZ" id="dBR-N1-bOg"/>
+                        <segue destination="ktr-4B-5FS" kind="unwind" identifier="saveBack" unwindAction="back:" id="Ewc-FB-NLV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cc1-Zu-VpD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ktr-4B-5FS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3090.8396946564885" y="-102.11267605633803"/>
         </scene>

@@ -31,4 +31,20 @@ final class ViewLogic {
               let cellIndexPath = tableView.indexPath(for: cell) else { return nil }
         return modelLogic.getScoreRow(indexPath: cellIndexPath)
     }
+    
+    /*
+    //Cuáles son los compositores que hay en la lista
+    func getMenuComposerActions(composerText: UITextField) {
+        var actions:[UIAction] = []
+        for name in modelLogic.composers {
+            let action = UIAction(title: name) { _ in
+                self.composer.text = name
+            }
+            actions.append(action)
+        }
+     
+    }
+     */
+    
+    
 }

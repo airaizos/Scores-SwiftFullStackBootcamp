@@ -48,11 +48,14 @@ final class ScoresTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "zelda", for: indexPath)
         let score = modelLogic.getScoreRow(indexPath: indexPath)
         
-        cell.contentConfiguration = viewLogic.cellForRowAt(indexPath: indexPath)
+        var content = UIListContentConfiguration.cell()
+        content.text = score.title
+        content.secondaryText = score.composer
+        content.image = UIImage(named: score.cover)
+        content.imageProperties.cornerRadius = 20
         
-        // Estos son de prueba inicial
-        // cell.textLabel?.text = "Titulo celda \(indexPath.row)"
-       // cell.detailTextLabel?.text = "Subtitulo \(indexPath.section)"
+       
+        cell.contentConfiguration = content
         
         return cell
     }
@@ -120,5 +123,20 @@ final class ScoresTableViewController: UITableViewController {
        
     }
     
-
+    //No se conecta. se deja vacio. segue de tipo unwind. No unido. Esto permite a la vista siguiente  hacer un outlet.
+    
+    // pero ha que conectar el storyboard siguiente al exit
+    @IBAction func back(_ segue: UIStoryboardSegue) {
+        //al salirse ejecuta esta funcion.
+        //Como no es reactivo. hay que darle la reactividad
+        
+        //Dependencia inversa
+        
+        guard let source = segue.source as? DetailViewController,
+              let selected = source.selectedScore,
+              let index = modelLogic.indexScore(score: selected)
+        else { return }
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .none)
+        }
 }

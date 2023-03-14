@@ -14,6 +14,9 @@ final class ModelLogic {
     let persistance = ModelPersistence.shared
     
     var scores: [Score]
+    var composers:[String] {
+        Array(Set(scores.map(\.composer))).sorted()
+    }
     
     
     init() {
@@ -49,4 +52,16 @@ final class ModelLogic {
         
     }
     
+    func updateScore(score: Score) {
+        if let index = scores.firstIndex(where: { $0.id == score.id }) {
+            scores[index] = score
+        }
+        
+    }
+    
+    //indice de un score
+    
+    func indexScore(score:Score) -> Int? {
+        scores.firstIndex(where: { $0.id == score.id }) 
+    }
 }

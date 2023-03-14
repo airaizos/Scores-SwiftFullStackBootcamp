@@ -17,3 +17,14 @@ struct Score:Hashable,Codable {
     let tracks:[String]
     
 }
+
+extension Score {
+    var yearString:String {
+        "\(year.formatted(.number.precision(.integerLength(4))))"
+    }
+    
+    var lengthString:String {
+        "\(length.formatted(.number.precision(.integerAndFractionLength(integer: 2, fraction: 1))))"
+    }
+    
+}
