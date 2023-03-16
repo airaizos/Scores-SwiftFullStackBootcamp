@@ -5,7 +5,7 @@
 //  Created by Adrian Iraizos Mendoza on 13/3/23.
 //
 
-import Foundation
+import UIKit
 
 //Se van a compartir en las pantallas asi que es un patrón Singleton. Funciona cuando los datos son compartidos
 final class ModelLogic {
@@ -13,7 +13,13 @@ final class ModelLogic {
     
     let persistance = ModelPersistence.shared
     
-    var scores: [Score]
+    private var scores: [Score] {
+        //Al ponerlo como didSet se guarda cada vez que se modifica. Asi no hayq ue ponerlo en las funciones de delete,move, update...
+        didSet {
+            try? persistance.saveScores(scores: scores)
+        }
+    }
+    
     var composers:[String] {
         Array(Set(scores.map(\.composer))).sorted()
     }
@@ -52,11 +58,15 @@ final class ModelLogic {
         
     }
     
-    func updateScore(score: Score) {
+    func updateScore(score: Score, newCover:UIImage?) {
         if let index = scores.firstIndex(where: { $0.id == score.id }) {
             scores[index] = score
         }
         
+        if let newCover {
+            try? persistance.saveImage(id: score.id, image: newCover)
+        }
+         
     }
     
     //indice de un score

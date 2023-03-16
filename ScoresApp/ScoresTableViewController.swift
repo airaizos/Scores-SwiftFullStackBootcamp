@@ -51,9 +51,9 @@ final class ScoresTableViewController: UITableViewController {
         var content = UIListContentConfiguration.cell()
         content.text = score.title
         content.secondaryText = score.composer
-        content.image = UIImage(named: score.cover)
-        content.imageProperties.cornerRadius = 20
-        
+        content.image = viewLogic.getCover(score: score)
+        content.imageProperties.cornerRadius = 18
+        content.imageProperties.maximumSize = CGSize(width: 100, height: 100)
        
         cell.contentConfiguration = content
         
@@ -82,8 +82,8 @@ final class ScoresTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .left)
             
        // } else if editingStyle == .insert {
-            //Solo cuando quiero hacer una inserción de valor en la que voy a controlar manualmente todo.  Asi que NO se hace. Se hace en una tabla a parte.
-            //Si queremos añadir más datos
+            ///**Solo cuando quiero hacer una inserción de valor en la que voy a controlar manualmente todo.  Asi que NO se hace. Se hace en una tabla a parte.
+            ///Si queremos añadir más datos
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
@@ -130,7 +130,7 @@ final class ScoresTableViewController: UITableViewController {
         //al salirse ejecuta esta funcion.
         //Como no es reactivo. hay que darle la reactividad
         
-        //Dependencia inversa
+        ///**Dependencia inversa
         
         guard let source = segue.source as? DetailViewController,
               let selected = source.selectedScore,
